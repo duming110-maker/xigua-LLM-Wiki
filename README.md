@@ -1,10 +1,13 @@
 # xigua-llm
 
+> 📌 **代码仓库**：[GitHub](https://github.com/duming110-maker/xigua-LLM-Wiki) · [Gitee](https://gitee.com/xiguadan/xigua-LLM-Wiki)
+> （网络无法访问 GitHub 时，可使用 Gitee 镜像）
+
 一个通用 AI 辅助的个人知识库：把多平台素材抓取、结构化知识管理和浏览器访问能力整合到一套 skill 体系中，帮助用户持续积累、交叉引用、按需检索自己的知识库。
 
 ## 核心能力
 
-- **多平台素材抓取** — 把公众号、B 站、GitHub、通用网页的 URL 批量抓取为 Markdown；视频自动 ASR 转写为文字。
+- **多平台素材抓取** — 把某众号、某站、GitHub、通用网页的 URL 批量抓取为 Markdown；视频自动 ASR 转写为文字。
 - **知识库管理** — 维护 `wiki/` 下的结构化 markdown 页面，按实体（人物、工具与产品、概念）分类，支持素材摄入、查询、整理、健康检查。
 - **浏览器访问** — 通过 CDP proxy 直连用户日常浏览器（Chrome / Edge），天然携带登录态，处理搜索、登录后操作、动态渲染页面、社交媒体抓取等任务。
 
@@ -50,7 +53,7 @@ xigua-llm/
 - **Node.js 22+**（web-access 使用，原生 WebSocket）
 - **ffmpeg**（视频音频提取与 ASR 解码，需含 aac 解码器）
 - **Chrome 或 Edge**（web-access CDP 模式必需，需开启远程调试）
-- **yt-dlp**（B 站视频下载）
+- **yt-dlp**（某站视频下载）
 
 ### 环境变量
 
@@ -125,9 +128,9 @@ node .trae/skills/web-access/scripts/check-deps.mjs
 
 | 平台 | URL 特征 | 处理方式 |
 |------|---------|---------|
-| B 站 | `bilibili.com/video/*` | yt-dlp 下载 → 音频提取 → ASR 转写 |
+| 某站 | `某站视频地址` | yt-dlp 下载 → 音频提取 → ASR 转写 |
 | GitHub | `github.com/*` | web-access CDP Proxy 真实浏览器渲染 → 提取 README 正文 → Markdown |
-| 微信公众号 | `mp.weixin.qq.com/*` | httpx 抓取 → HTML 解析 → Markdown |
+| 微信某众号 | `微信某众号链接` | httpx 抓取 → HTML 解析 → Markdown |
 | 通用网页 | 其他 HTTP URL | httpx 抓取 → HTML 解析 → Markdown |
 
 ### 不支持的平台
