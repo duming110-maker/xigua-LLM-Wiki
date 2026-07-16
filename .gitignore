@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+*.mp4
+*.mp3
+
+# Node（前端依赖，所有目录下的 node_modules 都不提交）
+node_modules/
+
+# 敏感配置（cookie、API Key、本地凭证）
+.cookies/
+.env
+*.local.yaml
+config.local.yaml
+
+# 临时素材输出
+material/

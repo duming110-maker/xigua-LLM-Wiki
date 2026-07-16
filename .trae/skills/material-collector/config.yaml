@@ -1,0 +1,41 @@
+# 素材收集器配置文件
+# 敏感信息（API Key、Cookie）独立文件存放（不入 git）或从环境变量读取，严禁硬编码
+
+# 素材输出根目录（相对于当前工作目录）
+output_dir: "material"
+
+# ASR 语音转写配置
+asr:
+  # 转写模式：local（本地 Whisper）或 remote（阿里 DashScope）
+  mode: "local"
+
+  # Whisper 本地模型配置（mode 为 local 时生效）
+  whisper:
+    model: "turbo"
+    device: "cuda"
+    language: "zh"
+    # 模型下载根目录，留空使用系统默认 ~/.cache/whisper
+    download_root: ""
+
+  # DashScope 远程配置（mode 为 remote 时生效）
+  model_id: "qwen3-asr-flash"
+  filetrans_model_id: "qwen3-asr-flash-filetrans"
+  max_attempts: 3
+  segment_seconds: 240
+  # API Key 从环境变量 DASHSCOPE_API_KEY 读取
+
+# yt-dlp 配置
+ytdlp:
+  format: "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best"
+  timeout: 120
+
+# 文章/网页抓取配置
+fetcher:
+  timeout: 30
+  user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36"
+  max_retries: 3
+
+# 临时文件配置
+temp:
+  cleanup: true
+  dir: ""

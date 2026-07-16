@@ -1,0 +1,11 @@
+# material-collector Skill 独立依赖
+# 安装命令: pip install -r requirements.txt
+# GitHub/X 等重度 SPA 平台通过 web-access skill 的 CDP Proxy 抓取（需用户浏览器开启远程调试）
+#   启动指引：node <web-access skill>/scripts/check-deps.mjs
+
+yt-dlp>=2026.1.31
+dashscope>=1.25.10
+openai-whisper>=20231117
+httpx>=0.28.0
+beautifulsoup4>=4.12.0
+pyyaml>=6.0
